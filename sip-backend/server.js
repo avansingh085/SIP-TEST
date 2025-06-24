@@ -9,23 +9,14 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-app.use(cors());
+app.use(cors({
+  origin: 'https://sip-test-zeta.vercel.app', 
+  credentials: true
+}));
 app.use(express.json());
 app.use('/api/users', userRoutes);
 
- connection.query(`select* from sipusers`, (error, results) => {
-    if (error) {
-      if (error.code === 'ER_DUP_ENTRY') {
-        console.error(`❌ SIP user "${name}" already exists.`);
-      } else {
-        console.error('❌ Error inserting SIP user:', error);
-      }
-      return;
-    }
 
-    console.log('✅ Inserted SIP User:', results);
-  });
 connectDB();
 
 app.listen(PORT, () => {
