@@ -15,14 +15,14 @@ const CallPanel = ({ sipCreds }) => {
   const localStreamRef = useRef(null);
 
   useEffect(() => {
-    const socket = new JsSIP.WebSocketInterface(`ws://${SIP_DOMAIN}:8089/ws`);
+    const socket = new JsSIP.WebSocketInterface(`wss://${SIP_DOMAIN}:8089/ws`);
 
     const configuration = {
       sockets: [socket],
       uri: `sip:${sipCreds.username}@${SIP_DOMAIN}`,
       password: sipCreds.password,
       registrar_server: `sip:${SIP_DOMAIN}`,
-      contact_uri: `sip:${sipCreds.username}@${SIP_DOMAIN};transport=ws`,
+      contact_uri: `sip:${sipCreds.username}@${SIP_DOMAIN};transport=wss`,
       session_timers: false,
       register: true,
     };

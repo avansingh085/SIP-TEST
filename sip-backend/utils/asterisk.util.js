@@ -18,7 +18,7 @@ export const insertSipUser = ({ name, secret }) => {
     encryption: 'yes',
     icesupport: 'yes',
     rtcp_mux: 'yes',
-    transport: 'ws',
+    transport: 'ws,wss',
     dtlsenable: 'yes',
     dtlsverify: 'fingerprint',
     dtlssetup: 'actpass',
