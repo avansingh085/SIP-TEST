@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import JsSIP from "jssip";
 
-const SIP_DOMAIN = "13.203.102.120"; // Replace with your Asterisk public IP
 
+
+const SIP_DOMAIN = import.meta.env.VITE_BACKEND_DOMAIN; 
 const CallPanel = ({ sipCreds }) => {
   const [ua, setUa] = useState(null);
   const [target, setTarget] = useState("");
