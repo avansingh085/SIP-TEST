@@ -13,8 +13,8 @@ const AuthPanel = ({ onAuthenticated }) => {
 
     try {
       const endpoint = mode === "register"
-        ? "http://localhost:5000/api/users/register"
-        : "http://localhost:5000/api/users/login";
+        ? `${import.meta.env.VITE_BACKEND_URL}/users/register`
+        : `${import.meta.env.VITE_BACKEND_URL}/users/login`;
 
       const res = await fetch(endpoint, {
         method: "POST",
